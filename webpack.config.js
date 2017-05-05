@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path:  path.resolve(__dirname, 'public'),
     publicPath: '/',
-    filename: ENV === 'production' ? '[name].[hash].js' : '[name].js',
+    filename: ENV === 'production' ? '[name].[chunkhash].js' : '[name].js',
   },
   stats: {
     colors: true,
@@ -76,7 +76,7 @@ module.exports = {
       minify: { collapseWhitespace: true }
     }),
     new ExtractTextPlugin({
-      filename: '[name].[hash].css',
+      filename: '[name].[contenthash].css',
 			allChunks: true,
 			disable: ENV!=='production'
 		}),
