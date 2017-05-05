@@ -47,7 +47,16 @@ module.exports = {
         test: /\.styl$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'stylus-loader']
+          use: [
+            'css-loader', 
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [require('autoprefixer')({ browsers: ['last 2 versions'] })],
+              }
+            }, 
+            'stylus-loader'
+          ]
         })
       },
     ]
