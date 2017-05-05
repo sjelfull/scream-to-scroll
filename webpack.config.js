@@ -67,7 +67,7 @@ module.exports = {
       minify: { collapseWhitespace: true }
     }),
     new ExtractTextPlugin({
-      filename: 'style.[hash].css',
+      filename: '[name].[hash].css',
 			allChunks: true,
 			disable: ENV!=='production'
 		}),
