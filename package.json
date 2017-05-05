@@ -27,6 +27,7 @@
     "build": "npm run prod"
   },
   "dependencies": {
+    "normalize.css": "^7.0.0",
     "preact": "^8.1.0"
   }
 }
