@@ -7,6 +7,7 @@ class Browser extends Component {
         super();
         this.maxScroll = 0;
         this.currentScroll = 0;
+        this.currentScreamingLevel = 0;
         this.increment = 0;
         this.timer = null;
 
@@ -60,9 +61,11 @@ class Browser extends Component {
         const newScroll = this.currentScroll + this.increment;
 
         if (newScroll < this.maxScroll) {
-            this.currentScroll = newScroll;
-            
-            this.iframe.contentWindow.scrollTo(0, this.currentScroll);
+
+            if (this.currentScreamingLevel > 20) {
+                this.currentScroll = newScroll;
+                this.iframe.contentWindow.scrollTo(0, this.currentScroll);
+            }
         } else {
             clearInterval(this.timer);
         }
@@ -75,8 +78,8 @@ class Browser extends Component {
         this.fetchUrl();
     }
 
-    onUpdateLevel(dB, percent, value) {
-        console.log(dB, percent, value);
+    onUpdateLevel(level) {
+        this.currentScreamingLevel = level;
     }
     
     fetchUrl() {
