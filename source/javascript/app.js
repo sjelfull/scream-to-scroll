@@ -2,8 +2,6 @@ import { h, Component, render  } from 'preact'
 import SoundDetector from './components/sound-detector'
 import Browser from './components/browser'
 
-require('marquee3000/marquee3k.js');
-
 class App extends Component {
   constructor() {
     super();
@@ -19,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    Marquee3k({spacing: 32});
+    window.Marquee3k({spacing: 32});
 
     $('.popup').magnificPopup({
       type: 'image',
