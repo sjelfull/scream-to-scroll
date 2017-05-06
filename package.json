@@ -27,7 +27,8 @@
     "dev": "webpack-dev-server",
     "prod": "cross-env NODE_ENV=production webpack -p --progress",
     "build": "npm run prod",
-    "api": "node source/javascript/api.js"
+    "api": "node source/javascript/api.js",
+    "start": "node source/javascript/api.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",

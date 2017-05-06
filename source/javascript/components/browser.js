@@ -58,16 +58,17 @@ class Browser extends Component {
     }
 
     increaseScroll() {
-        const newScroll = this.currentScroll + this.increment;
+        if (this.currentScreamingLevel > 15) {
+            let newScroll = this.currentScroll + this.increment;
 
-        if (newScroll < this.maxScroll) {
-
-            if (this.currentScreamingLevel > 20) {
-                this.currentScroll = newScroll;
+            if (newScroll < this.maxScroll) {
+                    this.currentScroll = newScroll;
+                    this.iframe.contentWindow.scrollTo(0, this.currentScroll);
+            } else {
+                this.currentScroll = 0;
                 this.iframe.contentWindow.scrollTo(0, this.currentScroll);
+                //clearInterval(this.timer);
             }
-        } else {
-            clearInterval(this.timer);
         }
     }
 

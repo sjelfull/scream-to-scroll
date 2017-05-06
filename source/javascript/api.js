@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(express.static('public'));
+
 app.post('/api/browser', function (req, res) {
     console.log(req.body);
     if (req.body.url) {
