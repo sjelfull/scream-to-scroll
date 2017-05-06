@@ -17,6 +17,7 @@ class Browser extends Component {
 
         this.onInput = this.onInput.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onClose = this.onClose.bind(this);
         this.fetchUrl = this.fetchUrl.bind(this);
         this.updateMaxScroll = this.updateMaxScroll.bind(this);
         this.increaseScroll = this.increaseScroll.bind(this);
@@ -24,6 +25,7 @@ class Browser extends Component {
     }
 
     componentDidMount() {
+        this.fetchUrl();
     }
 
     componentWillUnmount() {
@@ -49,17 +51,24 @@ class Browser extends Component {
 
         this.timer = setInterval(_ => {
             this.increaseScroll();
-        }, 250);
+        }, 200);
     }
 
     setIncrement() {
         // TODO: Something based on the dB level
-        this.increment = Math.ceil((this.maxScroll / 100) * 2);
+        this.increment = Math.ceil((this.maxScroll / 100) * 4);
+    }
+
+    getIncrement() {
+        // Baseline = 3
+        const increment = (this.currentScreamingLevel/100) * 15;
+        // TODO: Something based on the dB level
+        return Math.ceil((this.maxScroll / 100) * increment);
     }
 
     increaseScroll() {
         if (this.currentScreamingLevel > 15) {
-            let newScroll = this.currentScroll + this.increment;
+            let newScroll = this.currentScroll + this.getIncrement();
 
             if (newScroll < this.maxScroll) {
                     this.currentScroll = newScroll;
@@ -79,6 +88,12 @@ class Browser extends Component {
         this.fetchUrl();
     }
 
+    onClose(event) {
+        event.preventDefault();
+        console.log('close');
+        this.props.onClose();
+    }
+
     onUpdateLevel(level) {
         this.currentScreamingLevel = level;
     }
@@ -90,7 +105,7 @@ class Browser extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                url: this.urlInput.value })
+                url: this.props.url })
             }).then( r => {
                 return r.text()
             }).then(body => {
@@ -104,10 +119,7 @@ class Browser extends Component {
         return (
             <div className="browser">
                 <SoundDetector onUpdate={this.onUpdateLevel} />
-                <form className="browser-input" onSubmit={this.onSubmit}>
-                    <input type="text" ref={(input) => this.urlInput = input } value={state.url} onInput={this.onInput} placeholder="http://google.no" className="browser-input__input"/>
-                    <button className="browser-input__button">Go</button>
-                </form>
+                <button className="button button-black browser-close" onClick={this.onClose} type="button">Back</button>
                 <iframe frameborder="0" className="browser-window" ref={(iframe) => this.iframe = iframe}></iframe>
             </div>
         )

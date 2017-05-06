@@ -1,8 +1,13 @@
 .browser {
-    cursor: none;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 300;
 }
 
 .browser-input {
@@ -25,4 +30,18 @@
 
 .page {
     height: 100%;
+}
+
+.browser-close {
+    width: 144px;
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    color: #000;
+    border-color: #000;
+
+    &:active {
+        left: 50px;
+        top: 40px;
+    }
 }

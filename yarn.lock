@@ -2870,6 +2870,10 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
+marquee3000@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/marquee3000/-/marquee3000-0.0.4.tgz#8d19e4e65cbc0034eae12ae475b4eef91b3f124d"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"

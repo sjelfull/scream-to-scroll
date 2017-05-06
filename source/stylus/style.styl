@@ -5,45 +5,41 @@ html, body {
 }
 
 body {
-  background: #0026ff;
-  color: #fff;
+  //background: #0026ff;
+  //color: #fff;
 }
 
 .page {
 
 }
 
-.logo {
-  font-size: 100px;
-  font-weight: 700;
-  font-family: "Times New Roman", serif;
-  position: fixed;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
+.header .logo {
   margin: 0;
 }
 
 .meter {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 80px;
-  height: 100px;
-  width: 400px;
+  right: 50px;
+  top: 40px;
+  border: 2px solid #000000;
+  box-shadow: -6px 6px 0 #000000;
+  width: 268px;
   background-color: #fff;
+  height: 64px;
 }
 
 .meter__level {
-  background-color: red;
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100px;
-  width: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.meter__level-active-wrapper {
+  position: absolute;
+  left: 9px;
+  top: 8px;
+  overflow: hidden;
 }
 
 .meter__levelNumber {
@@ -52,6 +48,7 @@ body {
   position: absolute;
   right: 20px;
   top: 50px;
+  display: none;
 }
 
 @import "components/*";

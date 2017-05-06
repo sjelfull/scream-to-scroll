@@ -49,8 +49,10 @@ class SoundDetector extends Component {
     render(props, state) {
         return (
             <div className="meter">
-                <span className="meter__level" style={{ width: state.dbPercent + '%' }}></span>
-                <span className="meter__levelNumber">{state.dbPercent}</span>
+                <div className="meter__level-active-wrapper" style={{ width: state.dbPercent + '%' }}>
+                    <img src="/assets/meter-active@2x.png" width="246" height="44" alt="" className="meter__active-level"/>
+                </div>
+                <img src="/assets/meter-inactive@2x.png" width="236" height="32" alt="" className="meter__level meter__level--inactive"/>
             </div>
         )
     }
