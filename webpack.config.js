@@ -67,6 +67,9 @@ module.exports = {
     hot: true,
     overlay: true,
     historyApiFallback: true,
+    proxy: {
+      "/api": "http://localhost:4000"
+    }
   },
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
 

@@ -1,9 +1,20 @@
-import {h} from 'preact';
+import { h, Component, render  } from 'preact'
+import SoundDetector from './components/sound-detector'
+import Browser from './components/browser'
 
-const App = () => (
-  <div>
-    <h1>Contour</h1>
-  </div>
-)
+class App extends Component {
+  constructor() {
+    super();
+
+  }
+
+  render() {
+    return (
+      <div className="page">
+        <Browser />
+      </div>
+    )
+  }
+}
 
 export default App;

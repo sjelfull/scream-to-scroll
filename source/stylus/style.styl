@@ -1,5 +1,49 @@
 @import "~normalize.css/normalize.css";
 
-body {
-  background: red;
+html, body {
+  height: 100%;
 }
+
+body {
+  background: #0026ff;
+  color: #fff;
+}
+
+.page {
+
+}
+
+.logo {
+  font-size: 100px;
+  font-weight: 700;
+  font-family: "Times New Roman", serif;
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.meter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  height: 100px;
+  width: 400px;
+  background-color: #fff;
+}
+
+.meter__level {
+  background-color: red;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100px;
+  width: 0;
+}
+
+@import "components/*";

@@ -26,10 +26,20 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "prod": "cross-env NODE_ENV=production webpack -p --progress",
-    "build": "npm run prod"
+    "build": "npm run prod",
+    "api": "node source/javascript/api.js"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "cdnex": "^0.1.5",
+    "decibel-meter": "^2.0.0",
+    "express": "^4.15.2",
+    "got": "^6.7.1",
     "normalize.css": "^7.0.0",
-    "preact": "^8.1.0"
+    "p5": "^0.5.8",
+    "preact": "^8.1.0",
+    "request": "^2.81.0",
+    "sound-detection": "^0.1.1",
+    "unfetch": "^2.1.2"
   }
 }
